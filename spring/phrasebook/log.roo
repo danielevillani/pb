@@ -20,3 +20,13 @@ field string --fieldName telefono --notNull
 enum type --class ~.domain.TipoRichiesta
 enum constant --name COMPRO
 enum constant --name VENDO
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-10 11:19:14
+hint
+entity jpa --class ~.domain.Richiesta --abstract --inheritanceType SINGLE_TABLE
+field date --fieldName dataRichiesta --type java.util.Date --notNull --dateFormat SHORT --persistenceType JPA_DATE 
+field string --fieldName note
+field enum --fieldName tipoRichiesta --type ~.domain.TipoRichiesta --enumType STRING --notNull
+entity jpa --class ~.domain.RichiestaAcquisto --testAutomatically --extends ~.domain.Richiesta
+entity jpa --class ~.domain.RichiestaVendita --testAutomatically --extends ~.domain.Richiesta
+field number --fieldName prezzoCopertina --type java.math.BigDecimal --digitsInteger 4 --digitsFraction 2 --min 0
+web mvc setup 
