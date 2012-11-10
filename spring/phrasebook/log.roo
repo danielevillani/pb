@@ -1,0 +1,22 @@
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-10 10:51:21
+project --topLevelPackage it.phrasebook --projectName phrasebook --java 6 --packaging JAR
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-11-10 10:51:34
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-11-10 10:51:45
+hint
+jpa setup --database HYPERSONIC_IN_MEMORY --provider OPENJPA
+entity jpa --class ~.domain.Editore --testAutomatically --identifierColumn idEditore
+field string --fieldName casaEditrice --notNull
+entity jpa --class ~.domain.Libro --testAutomatically --identifierColumn idLibro
+field string --fieldName titolo --notNull
+field string --fieldName isbn --sizeMax 13 --regexp [0-9]{13}
+// [failed] field number --fieldName prezzo --type java.math.BigDecimal --digitsFraction 2 --min 0
+field number --fieldName prezzo --type java.math.BigDecimal --digitsFraction 2 --digitsInteger 4 --min 0
+// [failed] field reference --fieldName editore --type ~.domain.Editore --cardinality MANY_TO_MANY --referencedColumnName idEditore --joinColumnName idEditore
+field reference --fieldName editore --type ~.domain.Editore --cardinality MANY_TO_ONE --referencedColumnName idEditore --joinColumnName idEditore
+entity jpa --class ~.domain.Contatto --testAutomatically --identifierColumn idContatto
+field string --fieldName cognome --notNull
+field string --fieldName nome
+field string --fieldName telefono --notNull 
+enum type --class ~.domain.TipoRichiesta
+enum constant --name COMPRO
+enum constant --name VENDO
