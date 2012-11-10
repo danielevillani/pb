@@ -7,7 +7,7 @@ import org.springframework.roo.addon.tostring.RooToString;
 
 @RooJavaBean
 @RooToString
-@RooJpaActiveRecord(identifierColumn = "idEditore")
+@RooJpaActiveRecord(identifierColumn = "idEditore", finders = { "findEditoresByCasaEditriceLike" })
 public class Editore {
 
     @NotNull

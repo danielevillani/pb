@@ -30,3 +30,18 @@ entity jpa --class ~.domain.RichiestaAcquisto --testAutomatically --extends ~.do
 entity jpa --class ~.domain.RichiestaVendita --testAutomatically --extends ~.domain.Richiesta
 field number --fieldName prezzoCopertina --type java.math.BigDecimal --digitsInteger 4 --digitsFraction 2 --min 0
 web mvc setup 
+focus --class ~.domain.Contatto
+finder list 
+finder add --finderName findContattoesByCognomeLike
+finder add --finderName findContattoesByTelefonoEquals
+finder add --finderName findContattoesByNomeLike
+focus --class ~.domain.Editore
+finder list
+finder add --finderName findEditoresByCasaEditriceLike
+focus --class ~.domain.Libro
+finder list
+finder add --finderName findLibroesByEditore
+finder add --finderName findLibroesByIsbnEquals
+finder add --finderName findLibroesByTitoloLike
+focus --class ~.domain.Richiesta
+finder list

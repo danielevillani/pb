@@ -14,7 +14,7 @@ import org.springframework.roo.addon.tostring.RooToString;
 
 @RooJavaBean
 @RooToString
-@RooJpaActiveRecord(identifierColumn = "idLibro")
+@RooJpaActiveRecord(identifierColumn = "idLibro", finders = { "findLibroesByEditore", "findLibroesByIsbnEquals", "findLibroesByTitoloLike" })
 public class Libro {
 
     @NotNull
